@@ -1,40 +1,53 @@
-# Lilypad
+# EtherEngine
 
-Contract address for (the upgrade proxy of) LilypadEvents.sol is 0x75B01cAeFF294f10d21ff3429C683230e3d8C9B6
-(changelog)
+EtherEngine is a smart contract that interacts with the LilypadEventsUpgradeable contract. It allows users to run jobs on the Ethereum network. This project is currently set up to work with the Calibration Testnet.
 
-You need a .env file with your private key for a wallet to run this
+## Setup
 
-- Contracts under /contracts
-- ABI of compiled contracts under /artifacts (usually this folder goes in the .gitignore because you can make it by running `npx hardhat compile`)
+1. Clone the repository:
 
-You can deploy this contract by being in this folder and typing
-
-```shell
-npm i
-npx hardhat run scripts/deploy.ts
+```bash
+git clone https://github.com/yourusername/ether-engine.git
 ```
 
-***NOTE***
+2. Install dependencies:
 
-This will not enable running Bacalhau jobs on it's own. Bacalhau needs to be able listen for these jobs.
+```bash
+npm install
+```
 
-# Sample Hardhat Project
+3. Compile the contract:
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
+```bash
+npx hardhat compile
+```
 
-Try running some of the following tasks:
+## Deployment
 
-```shell
-npx hardhat help
+To deploy the EtherEngine contract, you need to provide the address of the already deployed LilypadEventsUpgradeable contract. For the Calibration Testnet, we are using the following proxy address: `0xdC7612fa94F098F1d7BB40E0f4F4db8fF0bC8820`.
+
+You can deploy the contract using the provided script:
+
+```bash
+npx hardhat run scripts/deploy.js
+```
+
+## Testing
+
+You can test the contract using the provided test script:
+
+```bash
 npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.ts
 ```
 
-Upgrades: https://docs.openzeppelin.com/contracts/4.x/upgradeable & https://docs.openzeppelin.com/upgrades-plugins/1.x/ & https://docs.openzeppelin.com/upgrades-plugins/1.x/proxies#the-constructor-caveat
-"Once this contract is set up and compiled, you can deploy it using the Upgrades Plugins. The following snippet shows an example deployment script using Hardhat."
-Transparent proxies define an admin address which has the rights to upgrade them. By default, the admin is a proxy admin contract deployed behind the scenes.
-UUPS and beacon proxies do not use admin addresses. UUPS proxies rely on an \_authorizeUpgrade function to be overridden to include access restriction to the upgrade mechanism, whereas beacon proxies are upgradable only by the owner of their corresponding beacon.
-# ether-engine-contracts
+## Usage
+
+After deploying the contract, you can interact with it using the EtherEngine interface. You can run jobs by calling the `runJob` function and providing the job specification as a string.
+
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
