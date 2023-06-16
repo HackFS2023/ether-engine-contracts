@@ -44,9 +44,6 @@ npx hardhat test
 
 After deploying the contract, you can interact with it using the EtherEngine interface. You can run jobs by calling the `runJob` function and providing the job specification as a string.
 
-## Contributing
-
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## License
 
